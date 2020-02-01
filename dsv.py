@@ -66,14 +66,14 @@ options:
         required: False"""
 
 RETURN = r"""
-_raw:
+_list:
     description:
         - The JSON responses to `GET /secrets/{path} <https://dsv.thycotic.com/api/index.html#operation/getSecret>`"""
 
 EXAMPLES = r"""
 - hosts: localhost
   vars:
-      secret: "{{ lookup('dsv', '/test/secret') | from_json }}"
+      secret: "{{ lookup('dsv', '/test/secret') }}"
   tasks:
       - debug: msg="the password is {{ secret["data"]["password"] }}"
 """
@@ -121,7 +121,7 @@ class LookupModule(LookupBase):
                     raise AnsibleOptionsError("Invalid secret path: %s" % term)
 
                 display.vvv(u"DevOps Secrets Vault GET /secrets/%s" % path)
-                result.append(vault.get_secret(path))
+                result.append(vault.get_secret_json(path))
             except SecretsVaultError as error:
                 raise AnsibleError(
                     "DevOps Secrets Vault lookup failure: %s" % error.message
