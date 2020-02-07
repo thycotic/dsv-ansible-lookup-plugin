@@ -30,7 +30,7 @@ options:
         required: True
     tld:
         default: com
-        description: the top-level domain of the tenant; the seoond format
+        description: the top-level domain of the tenant; the second format
             parameter in the default `url_template`
         env:
             - name: DSV_TLD
