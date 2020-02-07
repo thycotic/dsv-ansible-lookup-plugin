@@ -15,7 +15,7 @@ description:
     - Looks up and returns secrets from Thycotic DevOps Secrets Vault using
       client_id and client_secret.
 requirements:
-    - dsv-sdk-python
+    - python-dsv-sdk
 options:
     _terms:
         description: the path to the secret e.g. /staging/servers/web1
@@ -86,7 +86,7 @@ try:
         SecretsVaultError,
     )
 except ImportError:
-    raise AnsibleError("dsv-sdk-python must be installed to use this plugin")
+    raise AnsibleError("python-dsv-sdk must be installed to use this plugin")
 
 from ansible.module_utils._text import to_native
 from ansible.utils.display import Display
