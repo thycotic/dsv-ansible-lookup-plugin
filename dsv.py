@@ -104,9 +104,6 @@ class LookupModule(LookupBase):
             "client_secret": self.get_option("client_secret"),
             "url_template": self.get_option("url_template"),
         }
-
-        display.vvv("DevOps Secrets Vault parameters: %s" % vault_parameters)
-
         vault = SecretsVault(**vault_parameters)
         result = []
 
