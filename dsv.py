@@ -9,13 +9,10 @@ author: Adam Migus (adam@migus.org)
 version_added: "2.9"
 short_description: get secrets from Thycotic DevOps Secrets Vault
 description:
-    - Uses The Thycotic DevOps Secrets Vault Python SDK to get Secrets from DSV
-      `tenant` using Client Credentials `client_id` and `client_secret`.
-
-    - Looks up and returns secrets from Thycotic DevOps Secrets Vault using
-      client_id and client_secret.
+    - Uses The Thycotic DevOps Secrets Vault Python SDK to get Secrets from a
+       DSV `tenant` using a `client_id` and `client_secret`.
 requirements:
-    - python-dsv-sdk
+    - python-dsv-sdk - https://pypi.org/project/python-dsv-sdk/
 options:
     _terms:
         description: the path to the secret e.g. /staging/servers/web1
@@ -68,7 +65,8 @@ options:
 RETURN = r"""
 _list:
     description:
-        - The JSON responses to `GET /secrets/{path} <https://dsv.thycotic.com/api/index.html#operation/getSecret>`"""
+        - One or more JSON responses to `GET /secrets/{path}`
+        - See https://dsv.thycotic.com/api/index.html#operation/getSecret"""
 
 EXAMPLES = r"""
 - hosts: localhost
