@@ -6,10 +6,9 @@ __metaclass__ = type
 DOCUMENTATION = r"""
 lookup: dsv
 author: Adam Migus (adam@migus.org)
-version_added: "2.9"
-short_description: get secrets from Thycotic DevOps Secrets Vault
+short_description: Get secrets from Thycotic DevOps Secrets Vault
 description:
-    - Uses The Thycotic DevOps Secrets Vault Python SDK to get Secrets from a
+    - Uses the Thycotic DevOps Secrets Vault Python SDK to get Secrets from a
        DSV `tenant` using a `client_id` and `client_secret`.
 requirements:
     - python-dsv-sdk - https://pypi.org/project/python-dsv-sdk/
@@ -86,7 +85,6 @@ try:
 except ImportError:
     raise AnsibleError("python-dsv-sdk must be installed to use this plugin")
 
-from ansible.module_utils._text import to_native
 from ansible.utils.display import Display
 from ansible.plugins.lookup import LookupBase
 
