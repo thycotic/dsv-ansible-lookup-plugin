@@ -70,9 +70,10 @@ _list:
 EXAMPLES = r"""
 - hosts: localhost
   vars:
-      secret: "{{ lookup('dsv', '/test/secret') }}"
+      secret: "{{ lookup('community.general.dsv', '/test/secret') }}"
   tasks:
-      - debug: msg="the password is {{ secret["data"]["password"] }}"
+      - debug:
+          msg: 'the password is {{ secret["data"]["password"] }}'
 """
 
 from ansible.errors import AnsibleError, AnsibleOptionsError
@@ -119,5 +120,4 @@ class LookupModule(LookupBase):
                 raise AnsibleError(
                     "DevOps Secrets Vault lookup failure: %s" % error.message
                 )
-        display.debug(u"dsv_lookup result: %s" % result)
         return result
